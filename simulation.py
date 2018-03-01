@@ -1,11 +1,6 @@
-from class import Vehicule
+from class import Vehicule, Rides,
 
 step = 0
-
-
-
-
-
 
 def create_grid(rows, cols):
     grid = []

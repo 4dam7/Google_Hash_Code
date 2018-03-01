@@ -15,7 +15,7 @@ class Ride:
         self.early = int(array[4])
         self.late = int(array[5])
 
-class stat:
+class Stat:
     def __init__(self, line):
         array = line.split(' ')
         self.vehicule = []
@@ -30,9 +30,10 @@ with open(sys.argv[1]) as f:
     content = f.readlines()
     for line in content:
         if i == 0:
-
-        r_array.append(Ride(line))
-        i++
+            stat = Stat(line)
+        else:
+            r_array.append(Ride(line))
+            i += 1
 
 for v in r_array:
     print(v.start, v.stop, v.early, v.late)
