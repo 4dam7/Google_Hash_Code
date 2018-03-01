@@ -7,7 +7,8 @@ class Vehicule:
     def __init__(self):
         self.pos = [0, 0]
         self.status = "free"
-        self.dest = 0
+        self.dest_1 = 0
+         self.dest_2 = 0
 
     def get_vector(self, dest):
         vect = []
@@ -16,19 +17,34 @@ class Vehicule:
         return (vect)
 
     def move(self, vect):
-        if self.dest == 0:
+        if self.status == "free":
             return
-        vect = self.get_vector(self.dest)
-        if vect[0] != 0:
-            if vect[0] < 0:
-                self.pos[0] -= 1
+        vect1 = self.get_vector(self.dest_1)
+        vect2 = self.get_vector(self.dest_2)
+        if vect1 != [0, 0]:
+            if vect1[0] != 0:
+                if vect1[0] < 0:
+                    self.pos[0] -= 1
+                else:
+                    self.pos[0] += 1
             else:
-                self.pos[0] += 1
+                if vect1[1] < 0:
+                    self.pos[1] -= 1
+                else:
+                    self.pos[1] += 1
         else:
-            if vect[1] < 0:
-                self.pos[1] -= 1
+            if vect2[0] < 0:
+                    self.pos[0] -= 1
+                else:
+                    self.pos[0] += 1
             else:
-                self.pos[1] += 1
+                if vect2[1] < 0:
+                    self.pos[1] -= 1
+                else:
+                    self.pos[1] += 1
+
+        if vect1 == [0, 0] && vect2 == [0, 0]:
+            self.status = "free"
 
 class Ride:
     def __init__(self, line):
@@ -38,6 +54,8 @@ class Ride:
         self.stop = [int(array[2]), int(array[3])]
         self.early = int(array[4])
         self.late = int(array[5])
+        self.start = []
+        self.stop = []
 
 class Stat:
     def __init__(self, line):
