@@ -30,6 +30,8 @@ def assign_car(free, busy, rides):
             return
         free.remove(best)
         busy.append(best)
+        best.start = r.start
+        best.stop = r.stop
 
 
 busy = []
