@@ -8,8 +8,17 @@ class Vehicule:
         self.pos = [0, 0]
         self.status = "free"
         self.dest = 0;
+
+    def get_vector(self, dest):
+        vect = []
+        vect.append(dest[0] - self.pos[0])
+        vect.append(dest[1] - self.pos[1])
+        return (vect)
+
     def move(self, vect):
         if self.dest == 0:
+            return
+
 
 class Ride:
     def __init__(self, line):
