@@ -18,7 +18,17 @@ class Vehicule:
     def move(self, vect):
         if self.dest == 0:
             return
-
+        vect = self.get_vector(self.dest)
+        if vect[0] != 0:
+            if vect[0] < 0:
+                self.pos[0] -= 1;
+            else:
+                self.pos[0] += 1
+        else:
+            if vect[1] < 0:
+                self.pos[1] -= 1;
+            else:
+                self.pos[1] += 1
 
 class Ride:
     def __init__(self, line):
