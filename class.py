@@ -3,7 +3,7 @@
 import sys
 
 
-class Vehicle:
+class Ride:
     def __init__(self, line):
         array = line.split(' ')
         self.riding = 0
@@ -13,11 +13,11 @@ class Vehicle:
         self.late = int(array[5])
 
 
-v_array = []
+r_array = []
 with open(sys.argv[1]) as f:
     content = f.readlines()
     for line in content:
-        v_array.append(Vehicle(line))
+        r_array.append(Ride(line))
 
-for v in v_array:
+for v in r_array:
     print(v.start, v.stop, v.early, v.late)
