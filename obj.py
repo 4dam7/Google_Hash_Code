@@ -11,8 +11,6 @@ class Vehicule:
     def move(self, vect):
         if self.dest == 0:
 
-
-
 class Ride:
     def __init__(self, line):
         array = line.split(' ')

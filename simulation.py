@@ -9,3 +9,5 @@ def create_grid(rows, cols):
         for n in range(0, rows):
             grid[n].append(0);
     return (grid)
+
+while (all rides done)
