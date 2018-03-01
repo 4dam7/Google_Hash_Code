@@ -21,12 +21,12 @@ class Vehicule:
         vect = self.get_vector(self.dest)
         if vect[0] != 0:
             if vect[0] < 0:
-                self.pos[0] -= 1;
+                self.pos[0] -= 1
             else:
                 self.pos[0] += 1
         else:
             if vect[1] < 0:
-                self.pos[1] -= 1;
+                self.pos[1] -= 1
             else:
                 self.pos[1] += 1
 
@@ -48,3 +48,9 @@ class Stat:
             self.vehicles.append(Vehicule())
         self.bonus = array[4]
         self.steps = array[5]
+
+def end(busy, rides):
+    if not busy and not rides:
+        return 1
+    else:
+        return 0
