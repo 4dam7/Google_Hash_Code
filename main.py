@@ -5,21 +5,6 @@ from simulation import *
 from obj import *
 
 
-i = 0
-rides = []
-with open(sys.argv[1]) as f:
-    content = f.readlines()
-    for line in content:
-        if i == 0:
-            stat = Stat(line)
-        else:
-            rides.append(Ride(line))
-            i += 1
-
-for v in rides:
-    print(v.start, v.stop, v.early, v.late)
-
-
 def assign_car(free, busy, rides):
     for r in rides:
         best = "NULL"
@@ -39,6 +24,21 @@ def not_busy(free, busy):
         if car.status == "free":
             busy.append(car)
             free.remove(car)
+
+i = 0
+rides = []
+with open(sys.argv[1]) as f:
+    content = f.readlines()
+    for line in content:
+        if i == 0:
+            stat = Stat(line)
+        else:
+            rides.append(Ride(line))
+            i += 1
+
+for v in rides:
+    print(v.start, v.stop, v.early, v.late)
+
 
 
 busy = []
