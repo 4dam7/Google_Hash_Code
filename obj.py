@@ -7,7 +7,7 @@ class Vehicule:
     def __init__(self):
         self.pos = [0, 0]
         self.status = "free"
-        self.dest = 0;
+        self.dest = 0
 
     def get_vector(self, dest):
         vect = []

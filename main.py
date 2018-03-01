@@ -34,3 +34,4 @@ def assign_car(free, busy, rides):
 
 busy = []
 free = []
+
