@@ -1,10 +1,12 @@
 #!/usr/bin/python3
 
 import sys
+from simulation import *
 
 class Vehicule:
     def __init__(self):
         self.pos = [0, 0]
+
 
 class Ride:
     def __init__(self, line):
@@ -18,12 +20,14 @@ class Ride:
 class Stat:
     def __init__(self, line):
         array = line.split(' ')
-        self.vehicule = []
+        self.vehicles = []
         grid = create_grid(array[0], array[1])
         for i in range(0, array[2]):
-            self.vehicules.append(Vehicule())
+            self.vehicles.append(Vehicule())
         self.bonus = array[4]
         self.steps = array[5]
+
+
 i = 0
 r_array = []
 with open(sys.argv[1]) as f:
