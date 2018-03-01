@@ -35,17 +35,16 @@ with open(sys.argv[1]) as f:
     for line in content:
         if i == 0:
             stat = Stat(line)
+            i += 1
         else:
             rides.append(Ride(line, i - 1))
             i += 1
 
-for v in rides:
-    print(v.start, v.stop, v.early, v.late)
-
-
 
 busy = []
 free = stat.vehicles
+
+print(free, busy, rides)
 
 while (end(busy, rides)):
     not_busy(busy, rides)
