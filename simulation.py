@@ -1,6 +1,4 @@
-from class import Vehicule, Rides,
-
-step = 0
+from obj import *
 
 def create_grid(rows, cols):
     grid = []
@@ -9,5 +7,3 @@ def create_grid(rows, cols):
         for n in range(0, rows):
             grid[n].append(0);
     return (grid)
-
-while (all rides done)

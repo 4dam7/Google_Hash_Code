@@ -3,6 +3,14 @@
 import sys
 from simulation import *
 
+def create_grid(rows, cols):
+    grid = []
+    for i in range(0, cols):
+        grid.append(list());
+        for n in range(0, rows):
+            grid[i].append(0);
+    return (grid)
+
 class Vehicule:
     def __init__(self):
         self.pos = [0, 0]
@@ -34,7 +42,8 @@ class Vehicule:
                 else:
                     self.pos[1] += 1
         else:
-            if vect2[0] < 0:
+            if vect2[0] != 0:
+                if vect2[0] < 0:
                     self.pos[0] -= 1
                 else:
                     self.pos[0] += 1
@@ -44,7 +53,7 @@ class Vehicule:
                 else:
                     self.pos[1] += 1
 
-        if vect1 == [0, 0] && vect2 == [0, 0]:
+        if vect1 == [0, 0] and vect2 == [0, 0]:
             self.status = "free"
 
 class Ride:
@@ -63,11 +72,11 @@ class Stat:
     def __init__(self, line):
         array = line.split(' ')
         self.vehicles = []
-        grid = create_grid(array[0], array[1])
-        for i in range(0, array[2]):
+        grid = create_grid(int(array[0]), int(array[1]))
+        for i in range(0, int(array[2])):
             self.vehicles.append(Vehicule())
-        self.bonus = array[4]
-        self.steps = array[5]
+        self.bonus = int(array[4])
+        self.steps = int(array[5])
 
 def end(busy, rides):
     if not busy and not rides:
