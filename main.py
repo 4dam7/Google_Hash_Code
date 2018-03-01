@@ -32,6 +32,13 @@ def assign_car(free, busy, rides):
         busy.append(best)
         best.start = r.start
         best.stop = r.stop
+        best.status = "busy"
+
+def not_busy(free, busy):
+    for car in busy:
+        if car.status == "free":
+            busy.append(car)
+            free.remove(car)
 
 
 busy = []
