@@ -8,7 +8,8 @@ class Vehicule:
         self.pos = [0, 0]
         self.status = "free"
         self.dest_1 = 0
-         self.dest_2 = 0
+        self.dest_2 = 0
+        self.rides_done = []
 
     def get_vector(self, dest):
         vect = []
@@ -47,7 +48,7 @@ class Vehicule:
             self.status = "free"
 
 class Ride:
-    def __init__(self, line):
+    def __init__(self, line, i):
         array = line.split(' ')
         self.riding = 0
         self.start = [int(array[0]), int(array[1])]
@@ -56,6 +57,7 @@ class Ride:
         self.late = int(array[5])
         self.start = []
         self.stop = []
+        self.id = i
 
 class Stat:
     def __init__(self, line):
@@ -69,6 +71,6 @@ class Stat:
 
 def end(busy, rides):
     if not busy and not rides:
-        return 1
-    else:
         return 0
+    else:
+        return 1
